@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Train {
 	
 	@Id
-	private int   train_num;
+	private Integer  train_num;
 	@Field
 	private String  train_Name;
 	@Field
@@ -23,7 +23,7 @@ public class Train {
 	@Field
 	private String end_Loc;
 	@Field
-	private int seat;
+	private Integer seat;
 	@Field
 	private String time;
 
