@@ -72,7 +72,6 @@ public class ControllerMockMVCTest {
 		String jsonbody = mapper.writeValueAsString(t);
 		
 		mockmvc.perform(post("/train/add-train").content(jsonbody)
-				
 				.contentType(MediaType.APPLICATION_JSON))
 		      .andExpect(jsonPath(".trainNum").value(12121))
 	        .andExpect(jsonPath(".trainName").value("Bandra"))
@@ -192,7 +191,7 @@ public class ControllerMockMVCTest {
 		String jsonbody = mapper.writeValueAsString(t);
 		
          mockmvc.perform(put("/train/update/{id}",12121).content(jsonbody)
-				                   .contentType(MediaType.APPLICATION_JSON))
+		    .contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath(".trainNum").value(12121))
 	        .andExpect(jsonPath(".trainName").value("Bandra"))
 	        .andExpect(jsonPath(".startLoc").value("bandra"))
