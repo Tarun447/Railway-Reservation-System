@@ -63,11 +63,11 @@ public class UserController {
 	
 	
 	
-//	@GetMapping("/user/{username}")
-//	public User getByName(@PathVariable("username") String username)
-//	{
-//	  return service.findUserName(username);	
-//	}
+	@GetMapping("/user/{username}")
+	public User getByName(@PathVariable("username") String username)
+	{
+	  return service.findUserName(username);	
+	}
 	
 	
 	// getAll Train from Train microservice

@@ -34,6 +34,8 @@ public class AdminService {
 	
 	
 	private String url = "http://localhost:8989/train/";
+	
+	
 	//Add Admin
 	public Admin createAdmin(Admin admin)
 	{if(admin.getRole()!=null && admin.getRole().size()>0)
