@@ -21,4 +21,5 @@ public class Train {
 	private String endLoc;
 	private Integer seat;
 	private String time;
+	private Fare fare;
 }
