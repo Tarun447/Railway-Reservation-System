@@ -15,11 +15,16 @@ import lombok.NoArgsConstructor;
 public class Train {
 	
 	
+
 	private Integer  trainNum;
 	private String  trainName;
 	private String startLoc;
 	private String endLoc;
 	private Integer seat;
 	private String time;
+	private double firstAc;
+	private double secondAc;
+	private double thirdAc;
+	private double sleeper;
 
 }
