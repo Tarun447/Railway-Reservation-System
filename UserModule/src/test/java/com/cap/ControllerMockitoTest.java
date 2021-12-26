@@ -41,7 +41,7 @@ public class ControllerMockitoTest {
 	{
 
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"User"));
+		role1.add(new Role("1","User"));
 		 user = new User ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(service.createUser(user)).thenReturn(user);
 		 assertEquals(user,controller.create(user));
@@ -64,7 +64,7 @@ public class ControllerMockitoTest {
 	{
 
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"User"));
+		role1.add(new Role("1","User"));
 		 user = new User ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(service.findUserName("Tarunk")).thenReturn(user);
 		 

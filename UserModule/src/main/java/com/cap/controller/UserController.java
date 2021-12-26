@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,11 +17,13 @@ import com.cap.dto.Train;
 import com.cap.model.User;
 import com.cap.model.UserRequest;
 import com.cap.model.UserResponse;
+import com.cap.repository.UserRepository;
 import com.cap.service.UserService;
 import com.cap.util.JwtUtil;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins ="*")
 public class UserController {
 
 	@Autowired
@@ -31,6 +34,9 @@ public class UserController {
 	
 	@Autowired
 	private JwtUtil util;
+	
+	@Autowired
+	private UserRepository repo;
 	
 	
 	@PostMapping("/create")
@@ -48,9 +54,16 @@ public class UserController {
 		try
 		{
 
-			authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-					);
+			if(repo.findByUserName(request.getUsername()).getRole()!=null) {
+				authenticationManager.authenticate(
+						new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
+						);
+				
+			}
+			else
+			{
+				throw new Exception("Role is not defined");
+			}
 		}
 		catch(Exception e)
 		{

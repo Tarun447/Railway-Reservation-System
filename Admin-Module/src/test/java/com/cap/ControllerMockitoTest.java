@@ -41,7 +41,7 @@ public class ControllerMockitoTest {
 	public void TestAddAdmin()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
      	when(service.createAdmin(admin)).thenReturn(admin);
         assertEquals(admin, controller.addAdmin(admin));
@@ -52,7 +52,7 @@ public class ControllerMockitoTest {
 	public void TestUpdateById()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(service.updateById("1", admin)).thenReturn(admin);
 		assertEquals(admin,controller.update("1", admin));
@@ -62,7 +62,7 @@ public class ControllerMockitoTest {
 	public void TestFindByName()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(service.findUserName("Tarunk")).thenReturn(admin);
 		 assertEquals(admin,controller.getByName("Tarunk"));
@@ -76,7 +76,7 @@ public class ControllerMockitoTest {
 	public void TestDeleteAdmin()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(service.deleteAdmin("1")).thenReturn("Deleted");
 		 assertEquals("Deleted",controller.delete("1"));

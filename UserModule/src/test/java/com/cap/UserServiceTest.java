@@ -45,7 +45,7 @@ public class UserServiceTest {
 	public void TestAddAdmin()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"User"));
+		role1.add(new Role("1","User"));
 		 user = new User ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
      	when(repo.save(user)).thenReturn(user);
         assertEquals(user, service.createUser(user));
@@ -68,7 +68,7 @@ public class UserServiceTest {
 	public void TestFindByName()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"User"));
+		role1.add(new Role("1","User"));
 		 user = new User ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(repo.findByUserName("TarunK")).thenReturn(user);
 		 assertEquals(user,service.findUserName("TarunK"));

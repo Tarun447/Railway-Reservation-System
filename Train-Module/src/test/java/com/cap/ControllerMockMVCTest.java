@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.cap.train.controller.TrainController;
-import com.cap.train.model.Fare;
+//import com.cap.train.model.Fare;
 import com.cap.train.model.Train;
 import com.cap.train.service.TrainService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,7 +64,7 @@ public class ControllerMockMVCTest {
 	@Test
 	public void TestCreateTrain()throws Exception
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0);
 		
 		when(service.addTrain(t)).thenReturn(t);
 		
@@ -79,10 +79,10 @@ public class ControllerMockMVCTest {
 	        .andExpect(jsonPath(".endLoc").value("Mumbai"))
 	        .andExpect(jsonPath(".seat").value(400))
 	        .andExpect(jsonPath(".time").value("6.45"))
-	        .andExpect(jsonPath(".fare.firstAc").value(5898.0))
-			.andExpect(jsonPath(".fare.secondAc").value(3564.0))
-			.andExpect(jsonPath(".fare.thirdAc").value(2454.0))
-			.andExpect(jsonPath(".fare.sleeper").value(675.0));
+	        .andExpect(jsonPath(".firstAc").value(5898.0))
+			.andExpect(jsonPath(".secondAc").value(3564.0))
+			.andExpect(jsonPath(".thirdAc").value(2454.0))
+			.andExpect(jsonPath(".sleeper").value(675.0));
 		       
 	}
 	
@@ -91,7 +91,7 @@ public class ControllerMockMVCTest {
 	public void TestGetAll() throws Exception
 	{
 		train = new ArrayList<Train>();
-		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0)));
+		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0));
 		when(service.getAll()).thenReturn(train);
 		mockmvc.perform(get("/train/allTrain"))
 		.andExpect(status().isOk())
@@ -102,10 +102,10 @@ public class ControllerMockMVCTest {
         .andExpect(jsonPath("$[0].endLoc", is("Mumbai")))
         .andExpect(jsonPath("$[0].seat", is(400)))
         .andExpect(jsonPath("$[0].time", is("6.45")))
-        .andExpect(jsonPath("$[0].fare.firstAc", is(5898.0)))
-		.andExpect(jsonPath("$[0].fare.secondAc", is(3564.0)))
-		.andExpect(jsonPath("$[0].fare.thirdAc", is(2454.0)))
-		.andExpect(jsonPath("$[0].fare.sleeper", is(675.0)));
+        .andExpect(jsonPath("$[0].firstAc", is(5898.0)))
+		.andExpect(jsonPath("$[0].secondAc", is(3564.0)))
+		.andExpect(jsonPath("$[0].thirdAc", is(2454.0)))
+		.andExpect(jsonPath("$[0].sleeper", is(675.0)));
 	}
 	
 	
@@ -113,7 +113,7 @@ public class ControllerMockMVCTest {
 	public void TestFindByNumber() throws Exception
 	{
 
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0);
 	    when(service.getById(12121)).thenReturn(t);
 	    mockmvc.perform(get("/train/find/{id}",12121))
 	    .andExpect(jsonPath(".trainNum").value(12121))
@@ -122,10 +122,10 @@ public class ControllerMockMVCTest {
         .andExpect(jsonPath(".endLoc").value("Mumbai"))
         .andExpect(jsonPath(".seat").value(400))
         .andExpect(jsonPath(".time").value("6.45"))
-        .andExpect(jsonPath(".fare.firstAc").value(5898.0))
-		.andExpect(jsonPath(".fare.secondAc").value(3564.0))
-		.andExpect(jsonPath(".fare.thirdAc").value(2454.0))
-		.andExpect(jsonPath(".fare.sleeper").value(675.0));
+        .andExpect(jsonPath(".firstAc").value(5898.0))
+		.andExpect(jsonPath(".secondAc").value(3564.0))
+		.andExpect(jsonPath(".thirdAc").value(2454.0))
+		.andExpect(jsonPath(".sleeper").value(675.0));
 	  
 	}
 	
@@ -136,22 +136,23 @@ public class ControllerMockMVCTest {
 	{
 
 		train = new ArrayList<Train>();
-		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0)));
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(service.findbyName("Bandra")).thenReturn(train);
 		
 		mockmvc.perform(get("/train/find-train/{name}","Bandra")) 
       	.andExpect(jsonPath("$", hasSize(2)))
+      	
         .andExpect(jsonPath("$[0].trainNum", is(12121)))
         .andExpect(jsonPath("$[0].trainName", is("Bandra")))
         .andExpect(jsonPath("$[0].startLoc", is("bandra")))
         .andExpect(jsonPath("$[0].endLoc", is("Mumbai")))
         .andExpect(jsonPath("$[0].seat", is(400)))
         .andExpect(jsonPath("$[0].time", is("6.45")))
-        .andExpect(jsonPath("$[0].fare.firstAc", is(5898.0)))
-		.andExpect(jsonPath("$[0].fare.secondAc", is(3564.0)))
-		.andExpect(jsonPath("$[0].fare.thirdAc", is(2454.0)))
-		.andExpect(jsonPath("$[0].fare.sleeper", is(675.0)));
+        .andExpect(jsonPath("$[0].firstAc", is(5898.0)))
+		.andExpect(jsonPath("$[0].secondAc", is(3564.0)))
+		.andExpect(jsonPath("$[0].thirdAc", is(2454.0)))
+		.andExpect(jsonPath("$[0].sleeper", is(675.0)));
 	  
 	}
 	
@@ -160,8 +161,8 @@ public class ControllerMockMVCTest {
 	{
 
 		train = new ArrayList<Train>();
-		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0)));
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(service.findBylocation("bandra","Mumbai")).thenReturn(train);
 		mockmvc.perform(get("/train/find/{start}/{end}","bandra","Mumbai")) 
       	.andExpect(jsonPath("$", hasSize(2)))
@@ -171,10 +172,10 @@ public class ControllerMockMVCTest {
         .andExpect(jsonPath("$[0].endLoc", is("Mumbai")))
         .andExpect(jsonPath("$[0].seat", is(400)))
         .andExpect(jsonPath("$[0].time", is("6.45")))
-        .andExpect(jsonPath("$[0].fare.firstAc", is(5898.0)))
-		.andExpect(jsonPath("$[0].fare.secondAc", is(3564.0)))
-		.andExpect(jsonPath("$[0].fare.thirdAc", is(2454.0)))
-		.andExpect(jsonPath("$[0].fare.sleeper", is(675.0)));
+        .andExpect(jsonPath("$[0].firstAc", is(5898.0)))
+		.andExpect(jsonPath("$[0].secondAc", is(3564.0)))
+		.andExpect(jsonPath("$[0].thirdAc", is(2454.0)))
+		.andExpect(jsonPath("$[0].sleeper", is(675.0)));
 	  
 	}
 	
@@ -182,7 +183,7 @@ public class ControllerMockMVCTest {
 	@Test
 	public void TestUpdateTrain() throws Exception
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0);
 		when(service.getById(12121)).thenReturn(t);
 		when(service.updateById(12121, t)).thenReturn(t);
 		
@@ -198,10 +199,10 @@ public class ControllerMockMVCTest {
 	        .andExpect(jsonPath(".endLoc").value("Mumbai"))
 	        .andExpect(jsonPath(".seat").value(400))
 	        .andExpect(jsonPath(".time").value("6.45"))
-	        .andExpect(jsonPath(".fare.firstAc").value(5898.0))
-			.andExpect(jsonPath(".fare.secondAc").value(3564.0))
-			.andExpect(jsonPath(".fare.thirdAc").value(2454.0))
-			.andExpect(jsonPath(".fare.sleeper").value(675.0));;
+	        .andExpect(jsonPath(".firstAc").value(5898.0))
+			.andExpect(jsonPath(".secondAc").value(3564.0))
+			.andExpect(jsonPath(".thirdAc").value(2454.0))
+			.andExpect(jsonPath(".sleeper").value(675.0));;
          
          
 	}
@@ -210,7 +211,7 @@ public class ControllerMockMVCTest {
 	@Test
 	public void TestDeletetrain() throws Exception
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.0,3564.0,2454.0,675.0));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.0,3564.0,2454.0,675.0);
 //		when(service.getById(12121)).thenReturn(t);
 		when(service.delete(12121)).thenReturn("deleted");
 		

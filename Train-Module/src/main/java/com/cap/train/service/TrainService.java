@@ -44,6 +44,11 @@ public class TrainService {
 			tr.setEndLoc(train.getEndLoc());
 			tr.setSeat(train.getSeat());
 			tr.setTime(train.getTime());
+//			tr.setFare(train.getFare());
+			tr.setFirstAc(train.getFirstAc());
+			tr.setSecondAc(train.getSecondAc());
+			tr.setThirdAc(train.getThirdAc());
+			tr.setSleeper(train.getSleeper());
 			
 			return repository.save(tr);
 		}

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Role implements GrantedAuthority {
 
 	@Id
-	private Long rid;
+	private String rid;
 	@Indexed(unique = true)
 	private String role;
 	@Override

@@ -47,7 +47,7 @@ public class AdminServiceTest {
 	public void TestAddAdmin()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
      	when(repo.save(admin)).thenReturn(admin);
         assertEquals(admin, service.createAdmin(admin));
@@ -58,7 +58,7 @@ public class AdminServiceTest {
 	public void TestUpdateById()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		Optional<Admin> op = Optional.of(admin);
 		when(repo.findById("1")).thenReturn(op);
@@ -70,7 +70,7 @@ public class AdminServiceTest {
 	public void TestFindByName()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		 when(repo.findByUserName("TarunK")).thenReturn(admin);
 		 assertEquals(admin,service.findUserName("TarunK"));
@@ -81,7 +81,7 @@ public class AdminServiceTest {
 	public void TestUpdateAdmin()
 	{
 		Set<Role> role1 = new HashSet<Role>();
-		role1.add(new Role(1l,"Admin"));
+		role1.add(new Role("1","Admin"));
 		 admin = new Admin ("1","Tarun","Kumar","Nanda","xyz@gmail.com","1234",role1,"Tarunk");
 		Optional<Admin> op = Optional.of(admin);
 		when(repo.findById("1")).thenReturn(op);

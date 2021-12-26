@@ -1,4 +1,4 @@
-package com.cap.train.model;
+package com.cap.dto;
 
 
 import lombok.AllArgsConstructor;

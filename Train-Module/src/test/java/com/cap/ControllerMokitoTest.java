@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.cap.train.controller.TrainController;
-import com.cap.train.model.Fare;
+//import com.cap.train.model.Fare;
 import com.cap.train.model.Train;
 import com.cap.train.service.TrainService;
 
@@ -34,7 +34,7 @@ public class ControllerMokitoTest {
 	public void TestCreateTrain()
 	{
 
-		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		when(service.addTrain(train)).thenReturn(train);
         assertEquals(train, controller.createTrain(train));
 		
@@ -46,8 +46,8 @@ public class ControllerMokitoTest {
 	public void TestAllTrain()
 	{
         train = new ArrayList<Train>();
-		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(service.getAll()).thenReturn(train);
 		assertEquals(2, controller.allTrain().size());
 		
@@ -56,7 +56,7 @@ public class ControllerMokitoTest {
 	@Test
 	public void TestFindByNumber()
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 	    when(service.getById(12121)).thenReturn(t);
 	    assertEquals(12121,controller.findByTrainNumber(12121).getTrainNum() );
 	    
@@ -66,7 +66,7 @@ public class ControllerMokitoTest {
 	public void TestFindByName()
 	{
 		List<Train> train = new ArrayList<Train>();
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(service.findbyName("Pune Express")).thenReturn(train);
 		assertEquals(1, controller.findbyname("Pune Express").size());
 	}
@@ -76,7 +76,7 @@ public class ControllerMokitoTest {
 	public  void TestFindbyLoc()
 	{
 		List<Train> train = new ArrayList<Train>();
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(service.findBylocation("Pune", "delhi")).thenReturn(train);
 		assertEquals(1,controller.findbyloc("Pune","delhi").size());
 	}
@@ -85,7 +85,7 @@ public class ControllerMokitoTest {
 	@Test
 	public void TestupdateTrain()
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		when(service.updateById(12121, t)).thenReturn(t);
 		assertEquals(t,controller.updateTrain(12121, t));
 	}
@@ -94,7 +94,7 @@ public class ControllerMokitoTest {
 	@Test
 	public void TestDeleteTrain()
 	{
-		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		t = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		when(service.delete(12121)).thenReturn("hello");
 		assertEquals("hello", controller.deleteTrain(12121));
 	}

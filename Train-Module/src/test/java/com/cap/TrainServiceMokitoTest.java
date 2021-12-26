@@ -14,7 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cap.train.model.Fare;
+//import com.cap.train.model.Fare;
 import com.cap.train.model.Train;
 import com.cap.train.repository.TrainRepository;
 import com.cap.train.service.TrainService;
@@ -37,7 +37,7 @@ public class TrainServiceMokitoTest {
 	@Test
 	public void TestAddTrain()
 	{
-		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		when(repo.save(train)).thenReturn(train);
         assertEquals(train, service.addTrain(train));
 	}
@@ -48,8 +48,8 @@ public class TrainServiceMokitoTest {
 	public void  TestGetAll()
 	{
 		List<Train> train = new ArrayList<Train>();
-		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45",5898.00,3564.00,2454.00,675.00));
 		when(repo.findAll()).thenReturn(train); //mocking
 		assertEquals(2,service.getAll().size());;
 	}
@@ -57,7 +57,7 @@ public class TrainServiceMokitoTest {
 	@Test
 	public void TestGetById()
 	{
-		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		Optional<Train> op = Optional.of(train);
 		when(repo.findById(12121)).thenReturn(op);
 		assertEquals(12121,op.get().getTrainNum());
@@ -68,7 +68,7 @@ public class TrainServiceMokitoTest {
 	public void TestfindByName()
 	{
 		List<Train> train = new ArrayList<Train>();
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(repo.findByTrainName("Pune Express")).thenReturn(train);
 		assertEquals(1, service.findbyName("Pune Express").size());
 	}
@@ -77,7 +77,7 @@ public class TrainServiceMokitoTest {
 	public void TestFindByLocation()
 	{
 		List<Train> train = new ArrayList<Train>();
-		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00)));
+		train.add(new Train (12122,"Pune Express","Pune","delhi",400,"6.45", 5898.00,3564.00,2454.00,675.00));
 		when(repo.findByStartLocAndEndLoc("Pune", "delhi")).thenReturn(train);
 		assertEquals(1,service.findBylocation("Pune","delhi").size());
 	}
@@ -86,7 +86,7 @@ public class TrainServiceMokitoTest {
 	@Test
 	public void TestUpdateById()
 	{
-		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", new Fare(5898.00,3564.00,2454.00,675.00));
+		Train train = new Train (12121,"Bandra","bandra","Mumbai",400,"6.45", 5898.00,3564.00,2454.00,675.00);
 		Optional<Train> op = Optional.of(train);
 		when(repo.findById(12121)).thenReturn(op);
 		when(repo.save(op.get())).thenReturn(train);
