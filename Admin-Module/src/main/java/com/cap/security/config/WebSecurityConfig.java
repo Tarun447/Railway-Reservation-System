@@ -34,14 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.httpBasic();
-//		http.authorizeRequests().mvcMatchers(HttpMethod.POST, "/admin/addTrain").hasAuthority("Admin")
-//		.mvcMatchers(HttpMethod.GET, "/admin/**").hasAuthority("Admin")
-//		.mvcMatchers(HttpMethod.PUT, "/admin/update/**").hasAuthority("Admin")
-//		.mvcMatchers(HttpMethod.DELETE, "/admin/delete/**").hasAuthority("Admin").and().csrf().disable();
-//		http.authorizeHttpRequests().antMatchers("/admin/addAdmin").permitAll();
 		http.csrf().disable()
-		.authorizeHttpRequests().antMatchers("/admin/addAdmin","/admin/authenticates")
+		.authorizeHttpRequests().antMatchers("/admin/addAdmin","/admin/authenticates").
+		permitAll().antMatchers(HttpMethod.OPTIONS,"/**")
 		.permitAll().anyRequest().authenticated()
 		.and().exceptionHandling().and().sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

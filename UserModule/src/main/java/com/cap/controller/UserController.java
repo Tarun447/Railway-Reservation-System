@@ -23,7 +23,7 @@ import com.cap.util.JwtUtil;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired

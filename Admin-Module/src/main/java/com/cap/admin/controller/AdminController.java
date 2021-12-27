@@ -26,7 +26,7 @@ import com.cap.util.JwtUtil;
 
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins= "*")
 @RequestMapping("/admin")
 public class AdminController {
 

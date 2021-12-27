@@ -33,7 +33,7 @@ public class AdminService {
 	private PasswordEncoder passwordEncoder;
 	
 	
-	private String url = "http://localhost:8989/train/";
+	private String url = "http://localhost:8989/train";
 	
 	
 	//Add Admin
@@ -95,12 +95,12 @@ public class AdminService {
   
   public Train addTrain(Train train)
   {
-  	return restTemplate.postForObject(url, train ,Train.class);
+  	return restTemplate.postForObject(url+"/add-train", train ,Train.class);
   }
   
   public List<Train> getallTrain()
 	{
-		Train[] train=restTemplate.getForObject(url+"allTrain", Train[].class);
+		Train[] train=restTemplate.getForObject(url+"/allTrain", Train[].class);
 		return Arrays.asList(train); 
 
 	}
