@@ -31,7 +31,7 @@ public class BookOrderServiceTest {
 	@Test
 	public void TestCreateBook()
 	{
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 		when(repo.save(order)).thenReturn(order);
         assertEquals(order, service.addBook(order));
 	}
@@ -40,7 +40,7 @@ public class BookOrderServiceTest {
 	@Test
 	public void TestGetById()
 	{
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 		Optional<BookOrder> op = Optional.of(order);
 		when(repo.findById("1")).thenReturn(op);
 		assertEquals("1",service.findId("1").getBid());	
@@ -49,7 +49,7 @@ public class BookOrderServiceTest {
 	@Test
 	public void TestUpdateById()
 	{
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 		Optional<BookOrder> op = Optional.of(order);
 		when(repo.findById("1")).thenReturn(op);
 		when(repo.save(op.get())).thenReturn(order);
@@ -59,7 +59,7 @@ public class BookOrderServiceTest {
 	@Test
 	public void TestBookDelete()
 	{
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 		service.delete("1");
 		verify(repo).deleteById("1");
 	}

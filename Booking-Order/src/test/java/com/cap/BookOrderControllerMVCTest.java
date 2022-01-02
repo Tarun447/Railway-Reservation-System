@@ -47,7 +47,7 @@ public class BookOrderControllerMVCTest {
 	public void setUp()
 	{
 		mockmvc = MockMvcBuilders.standaloneSetup(controller).build();
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 	}
 	
 	
@@ -60,16 +60,16 @@ public class BookOrderControllerMVCTest {
 		mockmvc.perform(post("/book/makebook").content(jsonbody)
 				.contentType(MediaType.APPLICATION_JSON))
 			    .andExpect(jsonPath(".bid").value("1"))
-		        .andExpect(jsonPath(".userId").value("797739876387"))
 		        .andExpect(jsonPath(".userName").value("Traun"))
+		        .andExpect(jsonPath(".email").value("xyz@gmail.com"))
 		        .andExpect(jsonPath(".trainNumber").value(1212121))
 		        .andExpect(jsonPath(".trainName").value("Pune Intercity"))
 		        .andExpect(jsonPath(".ticketType").value("thirdAC"))
 		        .andExpect(jsonPath(".amnt").value(2675.00))
 				.andExpect(jsonPath(".stratpoint").value("Pune"))
 				.andExpect(jsonPath(".endpoint").value("MUmbai"))
-				.andExpect(jsonPath(".time").value("8.14"))
-				.andExpect(jsonPath(".quantity").value(8));
+				.andExpect(jsonPath(".time").value("8.14"));
+//				.andExpect(jsonPath(".quantity").value(8));
 	}
 	
 	
@@ -79,16 +79,16 @@ public class BookOrderControllerMVCTest {
 		when(service.findId("1")).thenReturn(order);
 	    mockmvc.perform(get("/book/findBook/{id}","1"))
 	    .andExpect(jsonPath(".bid").value("1"))
-        .andExpect(jsonPath(".userId").value("797739876387"))
         .andExpect(jsonPath(".userName").value("Traun"))
+        .andExpect(jsonPath(".email").value("xyz@gmail.com"))
         .andExpect(jsonPath(".trainNumber").value(1212121))
         .andExpect(jsonPath(".trainName").value("Pune Intercity"))
         .andExpect(jsonPath(".ticketType").value("thirdAC"))
         .andExpect(jsonPath(".amnt").value(2675.00))
 		.andExpect(jsonPath(".stratpoint").value("Pune"))
 		.andExpect(jsonPath(".endpoint").value("MUmbai"))
-		.andExpect(jsonPath(".time").value("8.14"))
-		.andExpect(jsonPath(".quantity").value(8));
+		.andExpect(jsonPath(".time").value("8.14"));
+//		.andExpect(jsonPath(".quantity").value(8));
 	}
 	
 	
@@ -103,16 +103,16 @@ public class BookOrderControllerMVCTest {
 		mockmvc.perform(put("/book/update/{id}","1").content(jsonbody)
 			    .contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath(".bid").value("1"))
-		        .andExpect(jsonPath(".userId").value("797739876387"))
 		        .andExpect(jsonPath(".userName").value("Traun"))
+		        .andExpect(jsonPath(".email").value("xyz@gmail.com"))
 		        .andExpect(jsonPath(".trainNumber").value(1212121))
 		        .andExpect(jsonPath(".trainName").value("Pune Intercity"))
 		        .andExpect(jsonPath(".ticketType").value("thirdAC"))
 		        .andExpect(jsonPath(".amnt").value(2675.00))
 				.andExpect(jsonPath(".stratpoint").value("Pune"))
 				.andExpect(jsonPath(".endpoint").value("MUmbai"))
-				.andExpect(jsonPath(".time").value("8.14"))
-				.andExpect(jsonPath(".quantity").value(8));
+				.andExpect(jsonPath(".time").value("8.14"));
+//				.andExpect(jsonPath(".quantity").value(8));
 	}
 	
 	

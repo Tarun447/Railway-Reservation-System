@@ -28,7 +28,7 @@ public class BookOrderControllerTest {
 	@BeforeEach
 	public void startup()
 	{
-		order = new BookOrder("1","797739876387","Traun",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14",8);
+		order = new BookOrder("1","Traun","xyz@gmail.com",1212121,"Pune Intercity","thirdAC",2675.00,"Pune","MUmbai","8.14");
 	}
 	
 	

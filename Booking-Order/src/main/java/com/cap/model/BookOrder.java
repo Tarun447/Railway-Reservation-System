@@ -15,8 +15,8 @@ public class BookOrder {
 
 	@Id
 	private String bid;
-	private String userId;
 	private String userName;
+	private String email;
 	private int trainNumber;
 	private String trainName;
 	private String ticketType;
@@ -24,7 +24,7 @@ public class BookOrder {
 	private String stratpoint;
 	private String endpoint;
 	private String time;
-	private int quantity;
+//	private int quantity;
 	
 	
 }

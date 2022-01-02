@@ -32,7 +32,7 @@ public class BookOrderService {
 	{
 		Optional<BookOrder> op = repository.findById(id);
 		BookOrder od =op.get();
-		od.setUserId(order.getUserId());
+		
 		od.setUserName(order.getUserName());
 		od.setTrainNumber(order.getTrainNumber());
 		od.setTrainName(order.getTrainName());
@@ -41,7 +41,8 @@ public class BookOrderService {
 		od.setStratpoint(order.getStratpoint());
 		od.setEndpoint(order.getEndpoint());
 		od.setTime(order.getTime());
-		od.setQuantity(order.getQuantity());
+		od.setEmail(order.getEmail());
+		
 		return repository.save(od);
 	}
 	
