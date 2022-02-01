@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+            <div id="custom-search-input">
+                    <div class="input-group col-md-12" style="text-align: center">
+                        <input type="number" class="search-query form-control" placeholder="Search By Id"  #name ngModel/>
+                        <span class="input-group-btn">
+                        <button class="btn btn-warning" type="button" (click)="byId(+name.value)">Search
+                        <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+            </div>
+    </div>
+</div>
+
+
+<!-- for Train details -->
+
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-md-6 offset-md-3 "> -->
+            <h1 class="text-center" style="padding-top: 5px;">Result</h1>
+            <table class="table table-light table-striped">
+              
+                <thead>
+                    <tr>
+                        <th class="col">Train Number</th>
+                        <th class="col">Train Name</th>
+                        <th class="col">Start location </th>
+                        <th class="col">End Location</th>
+                        <th class="col">Seat</th>
+                        <th class="col">Time</th>
+                        <th class="col">First Ac</th>
+                        <th class="col">Second Ac</th>
+                        <th class="col">Third Ac</th>
+                        <th class="col">Sleeper</th>
+                        <th class="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr >
+                        <td>{{trainlist.trainNum}}</td>
+                        <td>{{trainlist.trainName}}</td>
+                        <td>{{trainlist.startLoc}}</td>
+                        <td>{{trainlist.endLoc}}</td>
+                        <td>{{trainlist.seat}}</td>
+                        <td>{{trainlist.time}}</td>
+                        <td>{{trainlist.firstAc}}</td>
+                        <td>{{trainlist.secondAc}}</td>
+                        <td>{{trainlist.thirdAc}}</td>
+                        <td>{{trainlist.sleeper}}</td>
+                        <td><button type="button" class="btn btn-outline-success btn-sm" (click)="book(trainlist.trainNum)">Book</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        <!-- </div> -->
+    </div>
+</div>

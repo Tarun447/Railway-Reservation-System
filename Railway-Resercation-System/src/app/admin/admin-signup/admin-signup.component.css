@@ -1,0 +1,36 @@
+.head2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-weight:bold;
+    font-family: sans-serif;
+}
+/* .full
+{
+    width: 33%;
+} */
+.lab{
+    text-align: center;
+}
+.frm{
+    height: 20%;
+}
+/* .bt
+{
+    position: relative;
+    margin-left: 45%;
+} */
+form{
+    background: rgba(255,255,255,0.8);
+    border-radius: 6px;
+     /* background-color: brown; */
+     padding: 40px;
+     color: black;
+     /* background-color: brown; */
+}
+ 
+/* form input{
+    color: black;
+} */
+

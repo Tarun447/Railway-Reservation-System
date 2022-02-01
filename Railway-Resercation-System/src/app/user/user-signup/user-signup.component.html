@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 offset-md-3 text-xl-center">
+                <h1 id="head1">User Sign Up</h1>
+                <!-- <form class="frm" > -->
+                    <form  #frm="ngForm" (ngSubmit)="signupUser()"> 
+                    <mat-form-field class="full" appearance="outline" style="width: 33%; padding: 9px;">
+                        <mat-label class="lab">Enter First Name</mat-label>
+                        <input type="text" #fn="ngModel" matInput required  name="t1" placeholder="First Name Here" [(ngModel)]="user.fname"  autocomplete="off" >
+                        <mat-error *ngIf="fn.invalid && fn.touched"> First Name is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 9px;">
+                        <mat-label class="lab">Enter Middle Name</mat-label>
+                        <input type="text" matInput #mn="ngModel" required  name="t2" placeholder="Middle Name Here" [(ngModel)]="user.mname" autocomplete="off">
+                        <mat-error *ngIf="mn.invalid && mn.touched"> middle Name is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 9px;">
+                        <mat-label class="lab">Enter Last Name</mat-label>
+                        <input type="text" #ln="ngModel"matInput required  name="t3" placeholder="Last Name Here" [(ngModel)]="user.lname" autocomplete="off" >
+                        <mat-error *ngIf="ln.invalid && ln.touched"> Last Name is required</mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter Username</mat-label>
+                        <input type="text" #un="ngModel" matInput required  name="t4" placeholder="Email Here" [(ngModel)]="user.userName" autocomplete="false">
+                        <mat-error *ngIf="un.invalid && un.touched"> Username is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter Email</mat-label>
+                        <input type="email" #em="ngModel" email matInput required  name="t4" placeholder="Email Here" [(ngModel)]="user.email" autocomplete="off">
+                        <mat-error *ngIf="em.invalid && em.touched"> Email is not valid</mat-error>
+                      </mat-form-field>
+                      <input type="hidden" value="User">
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter password </mat-label>
+                        <input type="password" #ps="ngModel" minlength="4" matInput required  name="t5" placeholder="Password Here" [(ngModel)]="user.password" autocomplete="off" >
+                        <mat-error *ngIf="ps.invalid && ps.touched"> Minimum length must be 4</mat-error>
+                      </mat-form-field>
+                      &nbsp;&nbsp;&nbsp;<button type="submit" [disabled]="frm.invalid" mat-raised-button color="primary" style="width: 47%; padding-left: 10px">Sign Up</button>&nbsp;&nbsp;
+                      <button type="reset" mat-raised-button color="accent" style="width: 47%;">Reset</button><br><br>
+                      <hr>
+                      <h4>Already Have an Account</h4><a href="user/user-login">Click Here</a>
+                    </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>

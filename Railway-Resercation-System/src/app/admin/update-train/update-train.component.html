@@ -1,0 +1,57 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 offset-md-3">
+               <div class="div1">
+                <h1 id="head1">Update Train</h1>
+                <!-- <form class="frm" > -->
+                    <form >
+                    <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Train Number</mat-label>
+                        <input type="number"  matInput required [(ngModel)]="train.trainNum" name="t1" placeholder="Train Number Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Train Name</mat-label>
+                        <input matInput  required [(ngModel)]="train.trainName" name="t2" placeholder="Tarin Name Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Start Location</mat-label>
+                        <input matInput required [(ngModel)]="train.startLoc" name="t3" placeholder="Start Location Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Destination</mat-label>
+                        <input matInput required [(ngModel)]="train.endLoc" name="t4" placeholder="Destination Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Number Of Seat </mat-label>
+                        <input type="number" matInput required [(ngModel)]="train.seat" name="t5" placeholder="Number Of Seat  Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Starting Time</mat-label>
+                        <input matInput required [(ngModel)]="train.time" name="t6" placeholder="Time Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter FirstAC Fare</mat-label>
+                        <input type="number" matInput required [(ngModel)]="train.firstAc" name="t7" placeholder="FirstAC Fare Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter SecondAC Fare</mat-label>
+                        <input type="number" matInput required [(ngModel)]="train.secondAc" name="t8" placeholder="SecondAC Fare Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter ThirdAC Fare</mat-label>
+                        <input type="number" matInput required [(ngModel)]="train.thirdAc" name="t9" placeholder="ThirdAC Fare Here" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline">
+                        <mat-label class="lab">Enter Sleeper Fare</mat-label>
+                        <input type="number" matInput required [(ngModel)]="train.sleeper" name="t10" placeholder="Sleeper Fare Here" >
+                      </mat-form-field>
+                      <button type="submit" class="bt" mat-raised-button color="primary" (click)="changeTrain()">Save Changes</button><br><br>
+                </form>
+               </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+.head1{
+   text-align: center;
+   text-decoration: underline;
+   text-transform:uppercase;
+}
+
+
+.full{
+    /* padding:3% ; */
+    padding-right :3%;
+    padding-left: 3%;
+    width: 50%;
+}
+
+.con{
+    margin-left: 20%;
+}
+
+.bt1
+{
+    margin-left: 40%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

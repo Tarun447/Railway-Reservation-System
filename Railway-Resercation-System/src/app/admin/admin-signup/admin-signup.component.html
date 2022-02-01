@@ -1,0 +1,53 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 offset-md-3 text-center" id="div1">
+                <h1 class="head2">Admin Sign Up</h1>
+                    <form #frm="ngForm" (ngSubmit)="signupAdmin()"> 
+                    <mat-form-field class="full" appearance="outline" style="width: 33%; padding: 8px;">
+                        <mat-label class="lab">Enter First Name</mat-label>
+                        <input type="text" #fn="ngModel"  matInput required  name="t1" placeholder="First Name Here" [(ngModel)]="admin.fname" autocomplete="off" >
+                        <mat-error *ngIf="fn.invalid && fn.touched"> First Name is required</mat-error>
+                        <!-- <span *ngIf="fn.invalid && fn.touched"> First Name is required</span> -->
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 8px;">
+                        <mat-label class="lab">Enter Middle Name</mat-label>
+                        <input type="text" #mn="ngModel" matInput  required  name="t2" placeholder="Middle Name Here" [(ngModel)]="admin.mname"  autocomplete="off">
+                        <mat-error *ngIf="mn.invalid && mn.touched"> middle Name is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 8px;">
+                        <mat-label class="lab">Enter Last Name</mat-label>
+                        <input type="text" #ln="ngModel" matInput required  name="t3" placeholder="Last Name Here" [(ngModel)]="admin.lname" autocomplete="off" >
+                        <mat-error *ngIf="ln.invalid && ln.touched"> Last Name is required</mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter Username</mat-label>
+                        <input type="text" #un="ngModel" matInput required  name="t4" placeholder="Email Here" [(ngModel)]="admin.userName" autocomplete="false">
+                        <mat-error *ngIf="un.invalid && un.touched"> Username is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter Email</mat-label>
+                        <input type="email" #em="ngModel" email matInput required  name="t4" placeholder="Email Here" [(ngModel)]="admin.email" autocomplete="off">
+                        <mat-error *ngIf="em.invalid && em.touched"> Email is not valid</mat-error>
+                      </mat-form-field>
+
+                             <!-- hidden input for role -->
+                      <!-- <input type="hidden" name="any" #hi ngModel value="User"> -->
+
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter password </mat-label>
+                        <input type="password" #ps="ngModel" minlength="4" matInput required  name="t5" placeholder="Password Here" [(ngModel)]="admin.password" autocomplete="off" >
+                        <mat-error *ngIf="ps.invalid && ps.touched"> Minimum length must be 4</mat-error>
+                      </mat-form-field>
+                      &nbsp;&nbsp;&nbsp;<button type="submit" [disabled]="frm.invalid" mat-raised-button color="primary" style="width: 47%; padding-left: 10px">Sign Up</button>&nbsp;&nbsp;
+                      <button type="reset" mat-raised-button color="accent" style="width: 47%;">Reset</button><br><br>
+                    </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>

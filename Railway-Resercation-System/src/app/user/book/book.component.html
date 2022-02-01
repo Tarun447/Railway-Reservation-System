@@ -1,0 +1,59 @@
+<h1 class="head1">Booking Details</h1>
+    <form #frm="ngForm"class="fm">
+    <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Train Number</mat-label>
+        <input type="number"  matInput required [(ngModel)]="train.trainNum" name="t1" readonly >
+      </mat-form-field>
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab"> Train Name</mat-label>
+        <input matInput  required [(ngModel)]="train.trainName" name="t2"  readonly>
+      </mat-form-field>
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Start Location</mat-label>
+        <input matInput required [(ngModel)]="train.startLoc" name="t3"  readonly>
+      </mat-form-field>
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab"> Destination</mat-label>
+        <input matInput required [(ngModel)]="train.endLoc" name="t4"  readonly >
+      </mat-form-field>
+
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Starting Time</mat-label>
+        <input matInput required [(ngModel)]="train.time" name="t6"  readonly>
+      </mat-form-field>
+
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Enter User Name</mat-label>
+        <input #um="ngModel" matInput required [(ngModel)]="username" name="u">
+        <mat-error *ngIf="um.invalid && um.touched"> Username is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Enter Email</mat-label>
+        <input matInput #ema="ngModel" email required [(ngModel)]="email" name="em"   >
+        <mat-error *ngIf="ema.invalid && ema.touched"> Email is not valid</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full" appearance="outline">
+        <mat-label class="lab">Fare</mat-label>
+        <input matInput required [(ngModel)]="amt" name="fr"  readonly >
+      </mat-form-field>
+
+        <button mat-button class="full" id="fil" [matMenuTriggerFor]="menu">Choose Fare</button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="first()">First Ac</button>
+            <button mat-menu-item (click)="second()">Second Ac</button>
+            <button mat-menu-item (click)="third()">Third Ac</button>
+            <button mat-menu-item (click)="sleep()">Sleeper</button>
+            </mat-menu>
+
+  
+
+     <div class="con">
+        <button type="submit" class="bt" [disabled]="frm.invalid" mat-raised-button color="primary" (click)="pay()">Pay  &#x20b9; {{amt}}</button>
+        
+        <button mat-dialog-close class="bt1" mat-raised-button color="accent" (click)="close()" >Close</button><br><br>
+       
+    </div>
+</form>
+

@@ -1,0 +1,48 @@
+<div>
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-md-6 offset-md-2 ">
+                
+                <h1 class="text-center">TRAIN LIST</h1>
+                <table class="table  table-striped" id="tb">
+                  
+                    <thead>
+                        <tr>
+                            <th class="col">Train Number</th>
+                            <th class="col">Train Name</th>
+                            <th class="col">Start location </th>
+                            <th class="col">End Location</th>
+                            <th class="col">Seat</th>
+                            <th class="col">Time</th>
+                            <th class="col">First Ac</th>
+                            <th class="col">Second Ac</th>
+                            <th class="col">Third Ac</th>
+                            <th class="col">Sleeper</th>
+                            <th class="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let obj of trainlist" scope="row">
+                            <td>{{obj.trainNum}}</td>
+                            <td>{{obj.trainName}}</td>
+                            <td>{{obj.startLoc}}</td>
+                            <td>{{obj.endLoc}}</td>
+                            <td>{{obj.seat}}</td>
+                            <td>{{obj.time}}</td>
+                            <td>{{obj.firstAc}}</td>
+                            <td>{{obj.secondAc}}</td>
+                            <td>{{obj.thirdAc}}</td>
+                            <td>{{obj.sleeper}}</td>
+                            <td><button type="button" class="btn btn-outline-success" (click)="book(obj.trainNum)" >Book</button></td>
+                           
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<br><br><br>
+
+

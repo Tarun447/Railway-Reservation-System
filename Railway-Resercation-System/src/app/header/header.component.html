@@ -1,0 +1,73 @@
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-transparent">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img src="https://logos-download.com/wp-content/uploads/2019/11/Indian_Railway_Logo_2.png"  class="d-inline-block align-top"
+              alt="" >
+            <b id="bol"> Railway Reservation System</b>
+          </a>
+          </div>
+     
+          <!-- <div class="collapse navbar-collapse "> -->
+           <ng-template  [ngIf]="role==null">
+            <ul >
+              
+                <li><a routerLink="">Home</a></li>
+                <li><button id="bt" mat-button (click)="openlogin()"> login</button> </li>
+                
+                <li><button id="bt" mat-button (click)="opensignup()"> Sign up</button> </li>
+              <!-- <li><a routerLink="#">About</a></li> -->
+              </ul>
+           </ng-template>
+          
+           <!-- for admin -->
+           <ng-template [ngIf]="role=='Admin'">
+            <ul >
+                <li><a routerLink="home">Home</a></li>
+              <li><button id="bt" class="btn btn-sm" mat-button (click)="profile()"> Profile</button></li>
+              <li><a routerLink="admin/train-list" class="a2">Train List</a></li>
+               <li>
+                <button id = "btn" mat-button [matMenuTriggerFor]="menu">Search</button>
+                <mat-menu #menu="matMenu">
+                  <button class="inbt" mat-menu-item (click)="searchById()">Search by Id</button>
+                  <button class="inbt" mat-menu-item (click)="searchByName()">Search by Name</button>
+                  <button class="inbt" mat-menu-item (click)="searchByLoc()">Search by Location</button>
+                </mat-menu>
+               </li>
+               <li><a routerLink="admin/admin-signup">Add Admin</a></li>
+               <!-- <li><a routerLink="#">About</a></li> -->
+               <li>welcome&nbsp;<b>{{getUsername()}}</b></li>
+               <li><button id="bt" mat-button (click)="logout()"> Logout</button> </li>
+              </ul>
+           </ng-template>
+    
+
+           <!-- for User -->
+           <ng-template [ngIf]="role=='User'">
+            <ul >
+              <li><a routerLink="home">Home</a></li>
+            <li><button id="bt" class="btn btn-sm" mat-button (click)="profile()"> Profile</button></li>
+            <li><a routerLink="user/tarinlist" class="a2">Train List</a></li>
+             <li>
+              <button id = "btn" mat-button [matMenuTriggerFor]="menu">Search</button>
+              <mat-menu #menu="matMenu">
+                <button class="inbt" mat-menu-item (click)="searchById()">Search by Id</button>
+                <button class="inbt" mat-menu-item (click)="searchByName()">Search by Name</button>
+                <button class="inbt" mat-menu-item (click)="searchByLoc()">Search by Location</button>
+              </mat-menu>
+             </li>
+             <!-- <li><a routerLink="#">About</a></li> -->
+             <li>welcome&nbsp;<b>{{getUsername()}}</b></li>
+             <li><button id="bt" mat-button (click)="logout()"> Logout</button> </li>
+            </ul>
+           </ng-template>
+    
+        </div>
+      </nav>
+
+      
+
+
+
+

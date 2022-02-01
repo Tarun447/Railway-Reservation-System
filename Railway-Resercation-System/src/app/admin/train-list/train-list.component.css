@@ -1,0 +1,38 @@
+table
+{
+    width: 50%;
+    text-align: center;
+  
+    /* margin-lef */
+}
+.text-center{
+    text-align: center;
+    text-decoration:underline;
+    font-size: xx-large;
+    /* margin-bottom: 50px; */
+    margin-top: 60px;
+    margin-left: 40%;
+}
+
+.btn{
+   margin-bottom: 3px;
+    
+}
+
+#tb{
+    background: rgba(255,255,255,0.8);
+    border-radius: 6px;
+     /* background-color: brown; */
+     padding: 50px;
+}
+
+#sec{
+    float: right;
+    max-width: fit-content;
+    
+}
+#th{
+    float: left;
+    max-width: fit-content;
+    
+}

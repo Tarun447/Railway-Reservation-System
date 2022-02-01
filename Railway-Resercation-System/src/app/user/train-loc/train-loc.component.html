@@ -1,0 +1,56 @@
+<div class="row">
+    <div id="custom-search-input">
+                     <div class="input-group col-md-12" style="text-align: center">
+                        <input type="text" class="form-control" placeholder="Starting location" ngModel #st>
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" placeholder="Destination" ngModel #en>
+                         <span class="input-group-btn">
+                             <button class="btn btn-warning" type="button" (click)="byloc(st.value,en.value)">Search
+                                 <span class=" glyphicon glyphicon-search"></span>
+                             </button>
+                         </span>
+                     </div>
+                 </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-md-6 offset-md-3 "> -->
+                            <h1 class="text-center" style="padding-top: 5px;">Result</h1>
+                            <table class="table table-light table-striped text-center" >
+                              
+                                <thead>
+                                    <tr>
+                                        <th class="col">Train Number</th>
+                                        <th class="col">Train Name</th>
+                                        <th class="col">Start location </th>
+                                        <th class="col">End Location</th>
+                                        <th class="col">Seat</th>
+                                        <th class="col">Time</th>
+                                        <th class="col">First Ac</th>
+                                        <th class="col">Second Ac</th>
+                                        <th class="col">Third Ac</th>
+                                        <th class="col">Sleeper</th>
+                                        <th class="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr *ngFor="let obj of trainlist" scope="row">
+                                        <td>{{obj.trainNum}}</td>
+                                        <td>{{obj.trainName}}</td>
+                                        <td>{{obj.startLoc}}</td>
+                                        <td>{{obj.endLoc}}</td>
+                                        <td>{{obj.seat}}</td>
+                                        <td>{{obj.time}}</td>
+                                        <td>{{obj.firstAc}}</td>
+                                        <td>{{obj.secondAc}}</td>
+                                        <td>{{obj.thirdAc}}</td>
+                                        <td>{{obj.sleeper}}</td>
+                                        <td><td><button type="button" class="btn btn-outline-success btn-sm" (click)="book(obj.trainNum)" >Book</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- </div> -->
+                    </div>
+                </div>

@@ -1,0 +1,50 @@
+table
+{
+    width: 100%;
+    
+  
+    /* margin-lef */
+}
+.head1{
+    text-align: center;
+}
+.text-center{
+    text-align: center;
+    text-decoration:underline;
+    font-size: xx-large;
+    /* margin-bottom: 50px; */
+    margin-top: 60px;
+    margin-left: 40%;
+}
+
+.bt{
+   width: 70%;
+   /* margin-left: 85px; */
+    
+}
+
+.bt1{
+  margin-left: 100px;
+}
+
+.full{
+    margin: 15px;
+}
+#sec{
+    float: right;
+    max-width: fit-content;
+    
+}
+#th{
+    float: left;
+    max-width: fit-content;
+    
+}
+#fil{
+  margin-left: 20px;
+}
+
+.fm
+{
+    text-align: center;
+}

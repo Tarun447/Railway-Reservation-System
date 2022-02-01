@@ -1,0 +1,29 @@
+<div class="bootstrap-wrapper ">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 offset-md-4 text-center">
+                <h1 class="head2">User Login</h1>
+                    <form #frm="ngForm" (ngSubmit)="onSubmit()" > 
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter Username</mat-label>
+                        <input type="text" #mm="ngModel" matInput required  name="t4" placeholder="Email Here" [(ngModel)]="credential.username" autocomplete="false">
+                        <mat-error *ngIf="mm.invalid && mm.touched"> Username is required</mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Enter password </mat-label>
+                        <input type="password" #pas="ngModel" matInput required  name="t5" placeholder="Password Here" [(ngModel)]="credential.password"  autocomplete="off" >
+                        <mat-error *ngIf="pas.invalid && pas.touched"> Password is required</mat-error>
+                      </mat-form-field>
+                      &nbsp;&nbsp;&nbsp;<button type="submit" [disabled]="frm.invalid" mat-raised-button color="primary" style="width: 30%; padding-left: 10px">Login</button>&nbsp;&nbsp;
+                      <button type="reset" mat-raised-button color="accent" style="width: 30%;">Reset</button><br><br>
+                       <hr>
+                       <h4>Don't Have an Account</h4><a href="user/user-signup">Click Here</a>
+                    </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>

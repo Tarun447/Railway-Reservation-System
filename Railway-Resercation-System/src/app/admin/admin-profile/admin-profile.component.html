@@ -1,0 +1,42 @@
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-6 offset-md-3 text-center" id="div1">
+                <h1 class="head2" >Admin Details</h1>
+                    <form > 
+                    <mat-form-field class="full" appearance="outline" style="width: 33%; padding: 8px;">
+                        <mat-label class="lab">First Name</mat-label>
+                        <input   matInput   name="t1" readonly [(ngModel)]="admin.fname" autocomplete="off" >
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 8px;">
+                        <mat-label class="lab">Middle Name</mat-label>
+                        <input  matInput    name="t2" readonly [(ngModel)]="admin.mname"  autocomplete="off">
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 33%;padding: 8px;">
+                        <mat-label class="lab">Last Name</mat-label>
+                        <input  matInput   name="t3" readonly [(ngModel)]="admin.lname" autocomplete="off" >
+                      </mat-form-field>
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Username</mat-label>
+                        <input  matInput   name="t4" readonly [(ngModel)]="admin.userName"  autocomplete="off">
+                      </mat-form-field>
+
+                      <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Email</mat-label>
+                        <input  matInput   name="t5" readonly [(ngModel)]="admin.email" autocomplete="off">
+                      </mat-form-field>
+                      <!-- <mat-form-field class="full" appearance="outline" style="width: 100%;">
+                        <mat-label class="lab">Role</mat-label>
+                        <input  matInput  name="t5" readonly [(ngModel)]="admin.role" autocomplete="off" >
+                      </mat-form-field> -->
+                      
+                    </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+

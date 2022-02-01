@@ -1,0 +1,81 @@
+nav img{
+    width: 50px;
+}
+nav
+{
+    background-color:skyblue;
+    padding: 0;
+    flex: 1 1 auto;
+    padding-top: 15px;
+}
+#bol{
+    margin-top: 10%;
+    
+}
+
+ul
+{
+    float: right;
+    list-style-type: none;
+}
+
+ul li{
+       display: inline-block;
+       padding: 5px;
+}
+li a{
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    /* line-height: 50px; */
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+li a:hover{
+    background:darkorange;
+    border-radius: 6px;
+    border-style: solid;
+}
+
+
+
+#bt:hover{
+    background:darkorange;
+    border-radius: 6px;
+    border-style: solid;
+}
+
+#bt{
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+#btn{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#btn:hover{
+    background:darkorange;
+    border-radius: 6px;
+    border-style: solid;
+   
+}
+
+.inbt{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.inbt:hover{
+    background: tomato;
+}
+
+.swal2-confirm
+{
+  margin-left: 5px;
+}
